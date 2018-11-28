@@ -12,96 +12,61 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-5">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h1 class="jumbotron-heading">Checkout</h1>
         </div>
-        <div class="col-sm-2 center-block">
-            <h1 style="font-family: fantasy;font-size: 20px;margin-top: 2%">Checkout</h1>
-        </div>
-        <div class="col-sm-5">
-        </div>
+        <div class="col-md-4"></div>
     </div>
 </div>
 
 <hr>
 <div class="container">
     <div class="row">
-        <div class="col-sm-5">
-        </div>
-        <div class="col-sm-2 center-block">
-            <h1 style="font-family: fantasy;font-size: 20px;margin-top: 2%">Services</h1>
-        </div>
-        <div class="col-sm-5">
+        <div class="col-md-12 center-block">
+            <h1 style="font-family: fantasy;font-size: 30px;margin-top: 2%">Selected Services</h1>
         </div>
     </div>
-</div>
-
-<div class="row" style="margin-top: 4%;">
-    <div class="col-sm-4 car-service" *ngFor="let service of CarserviceOld " [ngClass]="{'active': service.isSelected}" (click)="listClick($event, service)">
-        <div class="row">
-            <div class="col-sm-4"></div>
-            <div>
-                <img [src]="service.imagePath" style="height: 120px;width: 120px;">
+    <div class="row">
+        <div class="car-service" *ngFor="let service of selectedCars" style="margin-right: 5px">
+            <div *ngIf="service.isSelected==true">
+                <img [src]="service.imagePath" style="height: 50px;width: 50px;">
                 <h6>{{service.name}}</h6>
                 <h6>Amount: {{service.Price}}</h6>
-                <h1></h1>
             </div>
-            <div class="col-sm-4"></div>
         </div>
     </div>
-
-
 </div>
+
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 center-block">
+            <h1 style="font-family: fantasy;font-size: 30px;margin-top: 2%">Selected Sizes</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="car-service" *ngFor="let carSZ of selectedSizes" style="margin-right: 10px">
+            <div *ngIf="carSZ.isSelected==true">
+                <img [src]="carSZ.imagePath" style="height: 80px;width: 80px;">
+                <h6>{{carSZ.carSize}}</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <hr>
 <div class="container">
     <div class="row">
         <div class="col-sm-5">
         </div>
-        <div class="col-sm-2 center-block">
-            <h1 style="font-family: fantasy;font-size: 20px;margin-top: 2%">Sizes</h1>
+        <div class="col-md- center-block ">
+            <h1 style="font-family: fantasy;font-size: 20px;margin-top: 2%">Total Amount: {{ tot }} </h1>
         </div>
         <div class="col-sm-5">
         </div>
     </div>
 </div>
-
-<div class="row" style="margin-top: 4%;">
-    <div class="col-sm-4 car-service" *ngFor="let carSZ of carNewSize" [ngClass]="{'active': service.isSelected}" (click)="listClick($event, service)">
-        <div class="row">
-            <div class="col-sm-4"></div>
-            <div>
-                <img [src]="service.imagePath" style="height: 120px;width: 120px;">
-                <h6></h6>
-                <h6>Amount: {{carSZ.Price}}</h6>
-                <h1></h1>
-            </div>
-            <div class="col-sm-4"></div>
-        </div>
-    </div>
-
-    <hr>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-5">
-            </div>
-            <div class="col-sm-2 center-block">
-                <h1 style="font-family: fantasy;font-size: 20px;margin-top: 2%">Amount: </h1>
-            </div>
-            <div class="col-sm-5">
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-5">
-
-            </div>
-            <div class="col-sm-2 center-block">
-                <button type="button" class="btn btn-default" [routerLink]="'/car-sizes'">CONTINUE</button>
-            </div>
-            <div class="col-sm-5">
-
-            </div>
-        </div>
-    </div>
